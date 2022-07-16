@@ -41,10 +41,6 @@ luac.out
 
 
 plugin/packer_compiled.lua
-.git
 .github
-LICENSE
-NvimTree_1
-./plugin/packer_compiled.lua
-./plugin/packer_compiled.lua
+
 
