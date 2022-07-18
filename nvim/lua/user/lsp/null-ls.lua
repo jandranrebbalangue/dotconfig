@@ -35,12 +35,12 @@ null_ls.setup {
         "heex",
       },
     },
-    formatting.mix,
-    formatting.elm_format,
+--    formatting.mix,
+--    formatting.elm_format,
     formatting.black.with { extra_args = { "--fast" } },
-    formatting.djhtml,
-    formatting.gofmt,
-    formatting.prismaFmt
+--    formatting.djhtml,
+--    formatting.gofmt,
+--    formatting.prismaFmt
     -- formatting.stylua,
   },
 }
