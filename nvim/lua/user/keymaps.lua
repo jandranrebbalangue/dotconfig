@@ -78,3 +78,16 @@ keymap("n", "<leader>gg", "<cmd>Telescope git_files<cr>", opts)
 
 -- Nvimtree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+-- Navigate harpoon
+keymap("n", "<A-a>", "<cmd> lua require('harpoon.mark').add_file()<cr>", opts)
+keymap("n", "<A-t>", "<cmd> lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
+keymap("n", "<A-1>", "<cmd> lua require('harpoon.ui').nav_file(1)<cr>", opts)
+keymap("n", "<A-2>", "<cmd> lua require('harpoon.ui').nav_file(2)<cr>", opts)
+keymap("n", "<A-3>", "<cmd> lua require('harpoon.ui').nav_file(3)<cr>", opts)
+keymap("n", "<A-4>", "<cmd> lua require('harpoon.ui').nav_file(4)<cr>", opts)
+keymap("n", "<A-5>","<cmd>  lua require('harpoon.ui').nav_file(5)<cr>",opts)
+keymap("n", "<A-6>", "<cmd> lua require('harpoon.ui').nav_file(6)<cr>", opts)
+keymap("n", "<A-7>", "<cmd> lua require('harpoon.ui').nav_file(7)<cr>", opts)
+keymap("n", "<A-8>", "<cmd> lua require('harpoon.ui').nav_file(8)<cr>", opts)
+keymap("n", "<A-9>", "<cmd> lua require('harpoon.ui').nav_file(9)<cr>", opts)
+keymap("n", "<A-0>","<cmd>  lua require('harpoon.ui').nav_file(0)<cr>",opts)
