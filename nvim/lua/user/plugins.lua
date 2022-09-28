@@ -121,8 +121,6 @@ use 'simrat39/rust-tools.nvim'
   use "tpope/vim-fugitive"
   -- auto tag
   use 'windwp/nvim-ts-autotag'
-  --lsp linting
-  use "dense-analysis/ale"
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
