@@ -68,6 +68,8 @@ return packer.startup(function(use)
   use "folke/tokyonight.nvim"
   use "lunarvim/darkplus.nvim"
   use 'EdenEast/nightfox.nvim'
+  use 'haishanh/night-owl.vim'
+  use "catppuccin/nvim"
 	-- cmp plugins
 	use "hrsh7th/nvim-cmp" -- The completion plugin
 	use "hrsh7th/cmp-buffer" -- buffer completions
@@ -130,6 +132,14 @@ use 'simrat39/rust-tools.nvim'
   use 'windwp/nvim-ts-autotag'
   --vim be good
 use 'ThePrimeagen/vim-be-good'
+
+use {
+    "ThePrimeagen/refactoring.nvim",
+    requires = {
+        {"nvim-lua/plenary.nvim"},
+        {"nvim-treesitter/nvim-treesitter"}
+    }
+}
   --lsp linting
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
