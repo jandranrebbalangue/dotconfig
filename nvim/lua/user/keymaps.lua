@@ -95,6 +95,9 @@ keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require
 keymap("n", "<leader>g", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
 keymap("n", "<leader>gg", "<cmd>Telescope git_files<cr>", opts)
 keymap("n", "<leader>m", "<cmd>Telescope media_files<cr>", opts)
+
+-- Git Blame
+keymap("n", "<leader>b", ":BlamerToggle<cr>", opts)
 -- Nvimtree
 --[[ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts) ]]
 --[[ keymap("n", "<leader>r", ":NvimTreeRefresh<cr>", opts) ]]

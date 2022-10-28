@@ -128,6 +128,8 @@ use 'simrat39/rust-tools.nvim'
 	-- Git
 	use({ "lewis6991/gitsigns.nvim" })
   use "tpope/vim-fugitive"
+  --Git blame
+  use "APZelos/blamer.nvim"
   -- auto tag
   use 'windwp/nvim-ts-autotag'
   --vim be good
