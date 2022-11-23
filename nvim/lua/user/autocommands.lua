@@ -28,6 +28,12 @@ vim.cmd [[
     autocmd!
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
+
+augroup JQXLIST
+	autocmd! * <buffer>
+	autocmd! BufWinEnter *.json :JqxList<CR>
+augroup END
+
 ]]
 
 vim.api.nvim_create_autocmd('BufRead', {

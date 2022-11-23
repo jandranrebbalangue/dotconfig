@@ -70,6 +70,7 @@ return packer.startup(function(use)
   use 'EdenEast/nightfox.nvim'
   use 'haishanh/night-owl.vim'
   use "catppuccin/nvim"
+  use 'yashguptaz/calvera-dark.nvim'
 	-- cmp plugins
 	use "hrsh7th/nvim-cmp" -- The completion plugin
 	use "hrsh7th/cmp-buffer" -- buffer completions
@@ -153,6 +154,10 @@ use {
     }
   end
 }
+--pomodoro
+use "dbinagi/nomodoro"
+--json format
+use "gennaro-tedesco/nvim-jqx"
   --lsp linting
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
