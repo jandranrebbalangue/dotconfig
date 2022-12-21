@@ -3,16 +3,16 @@ local fn = vim.fn
 -- Automatically install packer
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system({
-		"git",
-		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
-	})
-	print("Installing packer close and reopen Neovim...")
-	vim.cmd([[packadd packer.nvim]])
+  PACKER_BOOTSTRAP = fn.system({
+    "git",
+    "clone",
+    "--depth",
+    "1",
+    "https://github.com/wbthomason/packer.nvim",
+    install_path,
+  })
+  print("Installing packer close and reopen Neovim...")
+  vim.cmd([[packadd packer.nvim]])
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
@@ -26,44 +26,42 @@ vim.cmd([[
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-	return
+  return
 end
 
 -- Have packer use a popup window
 packer.init({
-	display = {
-		open_fn = function()
-			return require("packer.util").float({ border = "rounded" })
-		end,
-	},
+  display = {
+    open_fn = function()
+      return require("packer.util").float({ border = "rounded" })
+    end,
+  },
 })
 
 -- Install your plugins here
 return packer.startup(function(use)
-	-- My plugins here
+  -- My plugins here
 
-	use "wbthomason/packer.nvim" -- Have packer manage itself
+  use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
-	use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-	use "numToStr/Comment.nvim" -- Comment
- use {
-  'nvim-tree/nvim-tree.lua',
-  requires = {
-    'nvim-tree/nvim-web-devicons', -- optional, for file icons
-  },
-  tag = 'nightly' -- optional, updated every week. (see issue #1193)
-}
+  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+  use "numToStr/Comment.nvim" -- Comment
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  }
   use "JoosepAlviste/nvim-ts-context-commentstring" -- Comment string
-  --[[ use "kyazdani42/nvim-web-devicons" -- icons ]]
-  --[[ use "kyazdani42/nvim-tree.lua" -- nvim tree ]]
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
   use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
-	use "goolord/alpha-nvim"
-	use "folke/which-key.nvim"
+  use "goolord/alpha-nvim"
+  use "folke/which-key.nvim"
   -- Colorschemes
   use "folke/tokyonight.nvim"
   use "lunarvim/darkplus.nvim"
@@ -71,11 +69,12 @@ return packer.startup(function(use)
   use 'haishanh/night-owl.vim'
   use "catppuccin/nvim"
   use 'yashguptaz/calvera-dark.nvim'
-	-- cmp plugins
-	use "hrsh7th/nvim-cmp" -- The completion plugin
-	use "hrsh7th/cmp-buffer" -- buffer completions
-	use "hrsh7th/cmp-path" -- path completions
-	use "saadparwaiz1/cmp_luasnip" -- snippet completions
+
+  -- cmp plugins
+  use "hrsh7th/nvim-cmp" -- The completion plugin
+  use "hrsh7th/cmp-buffer" -- buffer completions
+  use "hrsh7th/cmp-path" -- path completions
+  use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
   use "j-hui/fidget.nvim" -- display nvim-lsp progress
@@ -88,10 +87,10 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
-	-- Telescope
-	use "nvim-telescope/telescope.nvim"
+  -- Telescope
+  use "nvim-telescope/telescope.nvim"
   use 'nvim-telescope/telescope-media-files.nvim'
-	-- Treesitter
+  -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
@@ -100,68 +99,96 @@ return packer.startup(function(use)
   use 'nvim-lua/lsp-status.nvim'
   -- Kickstart
   use 'nvim-lua/kickstart.nvim'
- --Discord
- use 'andweeb/presence.nvim'
+  --Discord
+  use 'andweeb/presence.nvim'
   --Harpoon
   use 'ThePrimeagen/harpoon'
   --Diagnostics
-use {
-  "folke/trouble.nvim",
-  requires = "kyazdani42/nvim-web-devicons",
-  config = function()
-    require("trouble").setup {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
-  end
-}
+
   use {
     'kosayoda/nvim-lightbulb',
     requires = 'antoinemadec/FixCursorHold.nvim',
-}
+  }
   --vim-rooter
   use 'airblade/vim-rooter'
   --rust
-use 'simrat39/rust-tools.nvim'
+  use 'simrat39/rust-tools.nvim'
   --Debugger
   use 'mfussenegger/nvim-dap'
-	-- Git
-	use({ "lewis6991/gitsigns.nvim" })
+  -- Git
+  use({ "lewis6991/gitsigns.nvim" })
   use "tpope/vim-fugitive"
-  --Git blame
-  use "APZelos/blamer.nvim"
   -- auto tag
   use 'windwp/nvim-ts-autotag'
   --vim be good
-use 'ThePrimeagen/vim-be-good'
-
-use {
+  use 'ThePrimeagen/vim-be-good'
+  --refactoring
+  use {
     "ThePrimeagen/refactoring.nvim",
     requires = {
-        {"nvim-lua/plenary.nvim"},
-        {"nvim-treesitter/nvim-treesitter"}
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-treesitter/nvim-treesitter" }
     }
-}
--- zen mode
-use {
-  "folke/zen-mode.nvim",
-  config = function()
-    require("zen-mode").setup {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
-  end
-}
---pomodoro
-use "dbinagi/nomodoro"
---json format
-use "gennaro-tedesco/nvim-jqx"
+  }
+  -- zen-mode
+  use {
+    "folke/zen-mode.nvim",
+    config = function()
+      require("zen-mode").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
+  -- prettier
+  use('MunifTanjim/prettier.nvim')
+  -- dark mode
+  use "mrjones2014/lighthaus.nvim"
+  --yaml
+  use {
+    "cuducos/yaml.nvim",
+    ft = { "yaml" }, -- optional
+    requires = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-telescope/telescope.nvim" -- optional
+    },
+  }
+  --pomodoro
+  use "dbinagi/nomodoro"
+  --json format
+  use "gennaro-tedesco/nvim-jqx"
+  --typescript
+  use "jose-elias-alvarez/typescript.nvim"
   --lsp linting
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	if PACKER_BOOTSTRAP then
-		require("packer").sync()
-	end
+  -- neorge
+  use {
+    "nvim-neorg/neorg",
+    -- tag = "*",
+    ft = "norg",
+    after = "nvim-treesitter", -- You may want to specify Telescope here as well
+    config = function()
+      require('neorg').setup {
+        load = {
+          ["core.defaults"] = {},
+          ["core.norg.dirman"] = {
+            config = {
+              workspaces = {
+                work = "~/notes/work",
+                home = "~/notes/home",
+              }
+            }
+          },
+          ["core.norg.completion"] = {},
+          ["core.norg.concealer"] = {},
+          ["core.presenter"] = {}
+        }
+      }
+    end
+  }
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if PACKER_BOOTSTRAP then
+    require("packer").sync()
+  end
 end)
