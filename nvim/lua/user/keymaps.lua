@@ -62,27 +62,8 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
--- Trouble
-vim.keymap.set("n", "<C-t>", "<cmd>TroubleToggle<cr>",opts)
--- vim.keymap.set("n", "<C-tw>", "<cmd>TroubleToggle workspace_diagnostics<cr>",
---   {silent = true, noremap = true}
--- )
--- vim.keymap.set("n", "<C-td>", "<cmd>TroubleToggle document_diagnostics<cr>",
---   {silent = true, noremap = true}
--- )
--- vim.keymap.set("n", "<C-tl>", "<cmd>TroubleToggle loclist<cr>",
---   {silent= true, noremap = true}
--- )
--- vim.keymap.set("n", "<C-tq>", "<cmd>TroubleToggle quickfix<cr>",
---   {silent = true, noremap = true}
--- )
--- vim.keymap.set("n", "<C-tr>", "<cmd>TroubleToggle lsp_references<cr>",
---   {silent = true, noremap = true}
--- )
-
--- Hover
---[[ keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) ]]
---keymap("n", "GD", "<cmd>Lspsaga preview_definition<CR>", { silent = true })
+-- Toggleterm
+keymap("n", "<leader>t", ":ToggleTerm<cr>", opts)
 -- Terminal --
 -- Better terminal navigation
 -- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
@@ -96,14 +77,10 @@ keymap("n", "<leader>g", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
 keymap("n", "<leader>gg", "<cmd>Telescope git_files<cr>", opts)
 keymap("n", "<leader>m", "<cmd>Telescope media_files<cr>", opts)
 
--- Git Blame
-keymap("n", "<leader>b", ":BlamerToggle<cr>", opts)
 -- Nvimtree
---[[ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts) ]]
---[[ keymap("n", "<leader>r", ":NvimTreeRefresh<cr>", opts) ]]
+keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>r", ":NvimTreeRefresh<cr>", opts)
 
---Neotree
-keymap("n", "<leader>e", ":Neotree<cr>", opts)
 
 -- Navigate harpoon
 keymap("n", "<A-a>", "<cmd> lua require('harpoon.mark').add_file()<cr>", opts)
@@ -119,3 +96,9 @@ keymap("n", "<A-8>", "<cmd> lua require('harpoon.ui').nav_file(8)<cr>", opts)
 keymap("n", "<A-9>", "<cmd> lua require('harpoon.ui').nav_file(9)<cr>", opts)
 keymap("n", "<A-0>"," <cmd> lua require('harpoon.ui').nav_file(0)<cr>",opts)
 keymap("n", "<A-n>", "<cmd> lua require('harpoon.tmux').gotoTerminal(1)<cr>", opts)
+
+
+--nomodoro
+keymap('n', '<leader>w', '<cmd>NomoWork<cr>', opts)
+keymap('n', '<leader>b', '<cmd>NomoBreak<cr>', opts)
+keymap('n', '<leader>s', '<cmd>NomoStop<cr>', opts)
