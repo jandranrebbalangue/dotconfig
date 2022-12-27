@@ -5,5 +5,4 @@ end
 
 require "user.lsp.configs"
 require("user.lsp.handlers").setup()
-require "user.lsp.mason-config"
 require "user.lsp.null-ls"
