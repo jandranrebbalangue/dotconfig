@@ -84,8 +84,11 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/mason-lspconfig.nvim" -- mason lsp
+use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+}
   --[[ use "williamboman/nvim-lsp-installer" -- simple to use language server installer ]]
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
@@ -189,8 +192,6 @@ return packer.startup(function(use)
     end
   }
 
-  -- mason
-use { "williamboman/mason.nvim" }
 -- autoclose
 use 'm4xshen/autoclose.nvim'
   -- Automatically set up your configuration after cloning packer.nvim
