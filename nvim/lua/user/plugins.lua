@@ -69,6 +69,7 @@ return packer.startup(function(use)
   use 'haishanh/night-owl.vim'
   use "catppuccin/nvim"
   use 'yashguptaz/calvera-dark.nvim'
+  use 'kvrohit/substrata.nvim'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -190,6 +191,8 @@ return packer.startup(function(use)
 
   -- mason
 use { "williamboman/mason.nvim" }
+-- autoclose
+use 'm4xshen/autoclose.nvim'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
