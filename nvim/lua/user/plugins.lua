@@ -194,6 +194,11 @@ use {
 
 -- autoclose
 use 'm4xshen/autoclose.nvim'
+-- navigation tmux
+use({
+    "aserowy/tmux.nvim",
+    config = function() return require("tmux").setup() end
+})
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
