@@ -85,6 +85,9 @@ return packer.startup(function(use)
 
   -- LSP
 use {
+  "ray-x/lsp_signature.nvim",
+}
+use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
