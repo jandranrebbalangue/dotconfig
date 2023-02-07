@@ -1,1 +1,1 @@
-My dotconfig file for neovim
+My personal configuration for neovim
