@@ -70,6 +70,10 @@ return packer.startup(function(use)
   use "catppuccin/nvim"
   use 'yashguptaz/calvera-dark.nvim'
   use 'kvrohit/substrata.nvim'
+  use { "bluz71/vim-moonfly-colors", as = "moonfly" }
+  use 'ray-x/aurora'
+  use 'JoosepAlviste/palenightfall.nvim'
+  use 'tiagovla/tokyodark.nvim'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -84,7 +88,7 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
-use {
+  use {
   "ray-x/lsp_signature.nvim",
 }
 use {
@@ -202,6 +206,13 @@ use({
     "aserowy/tmux.nvim",
     config = function() return require("tmux").setup() end
 })
+-- browse
+use({
+  "lalitmee/browse.nvim",
+  requires = { "nvim-telescope/telescope.nvim" },
+})
+--copilot
+use("github/copilot.vim")
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
