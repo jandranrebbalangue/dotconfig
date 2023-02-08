@@ -37,6 +37,21 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- keymap("n", "<S-l>", ":bnext<CR>", opts)
 -- keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
+--browse
+local bookmarks = {
+  ["github"] = {
+      ["name"] = "search github from neovim",
+      ["code_search"] = "https://github.com/search?q=%s&type=code",
+      ["repo_search"] = "https://github.com/search?q=%s&type=repositories",
+      ["issues_search"] = "https://github.com/search?q=%s&type=issues",
+      ["pulls_search"] = "https://github.com/search?q=%s&type=pullrequests",
+  },
+}
+
+vim.keymap.set("n", "<leader>br", function()
+  require("browse").browse({ bookmarks = bookmarks })
+end)
+
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
