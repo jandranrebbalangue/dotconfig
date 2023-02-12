@@ -17,8 +17,8 @@ require("mason-lspconfig").setup_handlers({
 	 	opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
 	 end
 
-	 if server == "sumneko_lua" then
-	 	local sumneko_opts = require("user.lsp.settings.sumneko_lua")
+	 if server == "lua_ls" then
+	 	local sumneko_opts = require("user.lsp.settings.lua_ls")
 	 	opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	 end
 
@@ -41,7 +41,6 @@ require("mason-lspconfig").setup_handlers({
 	    local eslint_opts = require("user.lsp.settings.eslint")
 	    opts = vim.tbl_deep_extend("force",eslint_opts, opts)
 	  end
-      
       require("lspconfig")[server].setup(opts)
  end})
 -- After setting up mason-lspconfig you may set up servers via lspconfig

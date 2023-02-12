@@ -211,8 +211,6 @@ use({
   "lalitmee/browse.nvim",
   requires = { "nvim-telescope/telescope.nvim" },
 })
---copilot
-use("github/copilot.vim")
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
