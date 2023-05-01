@@ -54,6 +54,8 @@ return packer.startup(function(use)
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
   use "JoosepAlviste/nvim-ts-context-commentstring" -- Comment string
+  --[[ use "kyazdani42/nvim-web-devicons" -- icons ]]
+  --[[ use "kyazdani42/nvim-tree.lua" -- nvim tree ]]
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
   use "akinsho/toggleterm.nvim"
@@ -70,10 +72,22 @@ return packer.startup(function(use)
   use "catppuccin/nvim"
   use 'yashguptaz/calvera-dark.nvim'
   use 'kvrohit/substrata.nvim'
-  use { "bluz71/vim-moonfly-colors", as = "moonfly" }
   use 'ray-x/aurora'
   use 'JoosepAlviste/palenightfall.nvim'
+  use { "bluz71/vim-moonfly-colors", as = "moonfly" }
   use 'tiagovla/tokyodark.nvim'
+  use {'uloco/bluloco.nvim',requires = { 'rktjmp/lush.nvim' }}
+use {
+  "jesseleite/nvim-noirbuddy",
+  requires = { "tjdevries/colorbuddy.nvim", branch = "dev" }
+}
+  use 'ishan9299/modus-theme-vim'
+use { 'embark-theme/vim', as = 'embark' }
+-- Lazy
+use{
+  "olimorris/onedarkpro.nvim",
+  priority = 1000 -- Ensure it loads first
+  }
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -88,7 +102,7 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
-  use {
+use {
   "ray-x/lsp_signature.nvim",
 }
 use {
@@ -107,6 +121,7 @@ use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
+use 'nvim-treesitter/nvim-treesitter-context'
   -- lsp status
   use 'nvim-lua/lsp-status.nvim'
   -- Kickstart
@@ -116,7 +131,6 @@ use {
   --Harpoon
   use 'ThePrimeagen/harpoon'
   --Diagnostics
-
   use {
     'kosayoda/nvim-lightbulb',
     requires = 'antoinemadec/FixCursorHold.nvim',
@@ -198,19 +212,131 @@ use {
       }
     end
   }
-
+  -- mason
 -- autoclose
 use 'm4xshen/autoclose.nvim'
 -- navigation tmux
 use({
     "aserowy/tmux.nvim",
-    config = function() return require("tmux").setup() end
+    config = function() return require("tmux").setup({
+ copy_sync = {
+        -- enables copy sync. by default, all registers are synchronized.
+        -- to control which registers are synced, see the `sync_*` options.
+        enable = true,
+
+        -- ignore specific tmux buffers e.g. buffer0 = true to ignore the
+        -- first buffer or named_buffer_name = true to ignore a named tmux
+        -- buffer with name named_buffer_name :)
+        ignore_buffers = { empty = false },
+
+        -- TMUX >= 3.2: all yanks (and deletes) will get redirected to system
+        -- clipboard by tmux
+        redirect_to_clipboard = false,
+
+        -- offset controls where register sync starts
+        -- e.g. offset 2 lets registers 0 and 1 untouched
+        register_offset = 0,
+
+        -- overwrites vim.g.clipboard to redirect * and + to the system
+        -- clipboard using tmux. If you sync your system clipboard without tmux,
+        -- disable this option!
+        sync_clipboard = false,
+
+        -- synchronizes registers *, +, unnamed, and 0 till 9 with tmux buffers.
+        sync_registers = true,
+
+        -- syncs deletes with tmux clipboard as well, it is adviced to
+        -- do so. Nvim does not allow syncing registers 0 and 1 without
+        -- overwriting the unnamed register. Thus, ddp would not be possible.
+        sync_deletes = true,
+
+        -- syncs the unnamed register with the first buffer entry from tmux.
+        sync_unnamed = true,
+    },
+    navigation = {
+        -- cycles to opposite pane while navigating into the border
+        cycle_navigation = true,
+
+        -- enables default keybindings (C-hjkl) for normal mode
+        enable_default_keybindings = true,
+
+        -- prevents unzoom tmux when navigating beyond vim border
+        persist_zoom = false,
+    },
+    resize = {
+        -- enables default keybindings (A-hjkl) for normal mode
+        enable_default_keybindings = true,
+
+        -- sets resize steps for x axis
+        resize_step_x = 1,
+
+        -- sets resize steps for y axis
+        resize_step_y = 1,
+    }
+    }) end
 })
+
 -- browse
 use({
   "lalitmee/browse.nvim",
   requires = { "nvim-telescope/telescope.nvim" },
 })
+-- git
+    use({
+        "aaronhallaert/advanced-git-search.nvim",
+        config = function()
+            require("telescope").load_extension("advanced_git_search")
+        end,
+        requires = {
+            "nvim-telescope/telescope.nvim",
+            -- to show diff splits and open commits in browser
+            "tpope/vim-fugitive",
+        },
+    })
+use({
+   "marilari88/twoslash-queries.nvim",config = function()
+        require("twoslash-queries").setup({
+            multi_line = true, -- to print types in multi line mode
+            is_enabled = false, -- to keep disabled at startup and enable it on request with the EnableTwoslashQueries 
+            highlight = "Type", -- to set up a highlight group for the virtual text
+	   })
+    end,
+})
+-- neodev
+use "folke/neodev.nvim"
+-- hover
+  use {
+	"Fildo7525/pretty_hover",
+	config = function()
+		require("pretty_hover").setup({
+	line = {
+		"@brief",
+	},
+	word = {
+		"@param",
+		"@tparam",
+		"@see",
+	},
+	header = {
+		"@class",
+	},
+	stylers = {
+		line = "**",
+		word = "`",
+		header = "###",
+	},
+	border = "rounded",
+      })
+	end
+}
+-- mjml preview
+use { "ec965/mjml-preview.nvim", ft = { "mjml" }, run = "cd app && npm install" }
+-- install without yarn or npm
+use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+})
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
