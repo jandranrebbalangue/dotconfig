@@ -123,6 +123,7 @@ vim.keymap.set("n", "<leader>m", function()
   require("telescope").extensions.monorepo.monorepo()
 end)
 
-vim.keymap.set("n", "<leader>n", function()
-  require("monorepo").toggle_project()
-end)
+keymap("n", "<leader>n","<cmd>lua require('monorepo').add_project()<cr>",opts)
+--[[ vim.keymap.set("n", "<leader>n", function() ]]
+--[[   require("monorepo").toggle_project() ]]
+--[[ end) ]]
