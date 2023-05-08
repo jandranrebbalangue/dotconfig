@@ -117,3 +117,12 @@ keymap("n", "<A-n>", "<cmd> lua require('harpoon.tmux').gotoTerminal(1)<cr>", op
 keymap('n', '<leader>w', '<cmd>NomoWork<cr>', opts)
 keymap('n', '<leader>b', '<cmd>NomoBreak<cr>', opts)
 keymap('n', '<leader>s', '<cmd>NomoStop<cr>', opts)
+
+--monorepo
+vim.keymap.set("n", "<leader>m", function()
+  require("telescope").extensions.monorepo.monorepo()
+end)
+
+vim.keymap.set("n", "<leader>n", function()
+  require("monorepo").toggle_project()
+end)

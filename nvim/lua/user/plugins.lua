@@ -336,6 +336,16 @@ use({
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
 })
+-- monorepo
+use {
+  "imNel/monorepo.nvim",
+  config = function()
+    require("monorepo").setup({
+      -- Your config here!
+    })
+  end,
+  requires= { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
+}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
