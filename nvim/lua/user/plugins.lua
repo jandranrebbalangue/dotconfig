@@ -78,6 +78,13 @@ return packer.startup(function(use)
   use 'tiagovla/tokyodark.nvim'
   use {'uloco/bluloco.nvim',requires = { 'rktjmp/lush.nvim' }}
 use {
+    "mcchrish/zenbones.nvim",
+    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+    -- In Vim, compat mode is turned on as Lush only works in Neovim.
+    requires = "rktjmp/lush.nvim"
+}
+use {
   "jesseleite/nvim-noirbuddy",
   requires = { "tjdevries/colorbuddy.nvim", branch = "dev" }
 }
@@ -329,8 +336,6 @@ use "folke/neodev.nvim"
       })
 	end
 }
--- mjml preview
-use { "ec965/mjml-preview.nvim", ft = { "mjml" }, run = "cd app && npm install" }
 -- install without yarn or npm
 use({
     "iamcco/markdown-preview.nvim",
@@ -353,3 +358,4 @@ use {
     require("packer").sync()
   end
 end)
+
