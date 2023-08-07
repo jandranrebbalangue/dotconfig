@@ -1,7 +1,23 @@
 -- Nightfox colorschemes: 'nightfox', 'dayfox', 'dawnfox', 'duskfox', 'nordfox', 'terafox'
 --[[ local colorscheme = "nightfox" ]]
 
-local colorscheme = "catppuccin"
+--[[ local colorscheme = "tokyonight-storm" ]]
+
+--[[ local colorscheme = "embark" ]]
+--[[ local colorscheme = "catppuccin" ]]
+--[[ local colorscheme = "mellifluous" ]]
+--[[ local colorscheme = "rasmus" ]]
+local colorscheme = "midnight"
+--[[ require('palenightfall').configure_colors({ ]]
+--[[   cyan = '#fff0000', ]]
+--[[ }) ]]
+--[[ require('palenightfall').configure_highlights({ ]]
+--[[   Normal = { fg = '#ff0000' }, ]]
+--[[ }) ]]
+
+--[[ local colorscheme = "palenightfall" ]]
+--[[ local colorscheme = "substrata" ]]
+--[[ local colorscheme = "calvera" ]]
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 
@@ -11,51 +27,109 @@ if not status_ok then
 end
 --[[ local mocha = require("catppuccin.palettes").get_palette("mocha") ]]
 --[[ local M = {} ]]
-local ok_status, catppuccin= pcall(require, "catppuccin")
-
+--[[ local ok_status,mellifluous= pcall(require, "mellifluous") ]]
+--[[ local ok_status,rasmus= pcall(require, "rasmus") ]]
+local ok_status,midnight= pcall(require, "midnight")
+--[[ local ok_status, catppuccin= pcall(require, "catppuccin") ]]
+--[[ local ok_status,lighthaus= pcall(require, "lighthaus") ]]
+--[[ local ok_status,palenightfall= pcall(require, "palenightfall") ]]
+--[[ local ok_status,calvera= pcall(require, "calvera") ]]
+--[[ local ok_status,tokyonight= pcall(require, "tokyonight") ]]
+--[[ local ok_status,embark= pcall(require, "embark") ]]
+--[[ local ok_status,noirbuddy= pcall(require, "noirbuddy") ]]
+--[[]]
 if not ok_status then
   return
 end
-
-catppuccin.setup {
-	flavour = "mocha", -- latte, frappe, macchiato, mocha
-	term_colors = true,
-	transparent_background = false,
-	styles = {
-		comments = {},
-		conditionals = {},
-		loops = {},
-		functions = {},
-		keywords = {},
-		strings = {},
-		variables = {},
-		numbers = {},
-		booleans = {},
-		properties = {},
-		types = {},
-	},
-	color_overrides = {
-		latte = {
-			base = "#E1EEF5",
-		},
-		mocha = {
-			base = "#000000",
-		},
-	},
-	highlight_overrides = {
-		latte = function(_)
-			return {
-				NvimTreeNormal = { bg = "#D1E5F0" },
-			}
-		end,
-		mocha = function(mocha)
-			return {
-				NvimTreeNormal = { bg = mocha.none },
-				CmpBorder = { fg = mocha.surface2 },
-			}
-		end,
-	},
+midnight.setup {
+    HighlightGroup = {
+        fg = ForegroundColor, -- :h guifg
+        bg = BackgroundColor, -- :h guibg
+        sp = SpecialColor, -- :h guisp
+        style = RenderStyle, -- :h attr-list
+        clear = true -- :h :hi-clear (clear "HighlightGroup"; `false` ignores this option)
+    },
+    ...
 }
+-- Configure the appearance
+--[[ vim.g.rasmus_italic_functions = true ]]
+--[[ vim.g.rasmus_bold_functions = true ]]
+
+-- Set the colorscheme variant to monochrome
+--[[ vim.g.rasmus_variant = "monochrome" ]]
+--[[ mellifluous.setup({ ]]
+--[[     dim_inactive = true, ]]
+--[[     color_set = 'toggle_transparency', ]]
+--[[     styles = { ]]
+--[[         comments = 'italic', ]]
+--[[         conditionals = 'NONE', ]]
+--[[         folds = 'NONE', ]]
+--[[         loops = 'NONE', ]]
+--[[         functions = 'NONE', ]]
+--[[         keywords = 'NONE', ]]
+--[[         strings = 'NONE', ]]
+--[[         variables = 'NONE', ]]
+--[[         numbers = 'NONE', ]]
+--[[         booleans = 'NONE', ]]
+--[[         properties = 'NONE', ]]
+--[[         types = 'NONE', ]]
+--[[         operators = 'NONE', ]]
+--[[     }, ]]
+--[[     transparent_background = { ]]
+--[[         enabled = true, ]]
+--[[         floating_windows = true, ]]
+--[[         telescope = true, ]]
+--[[         file_tree = true, ]]
+--[[         cursor_line = true, ]]
+--[[         status_line = false, ]]
+--[[     }, ]]
+--[[     flat_background = { ]]
+--[[         line_numbers = false, ]]
+--[[         floating_windows = false, ]]
+--[[         file_tree = false, ]]
+--[[         cursor_line_number = false, ]]
+--[[     }, ]]
+--[[     plugins = { ]]
+--[[         cmp = true, ]]
+--[[         gitsigns = true, ]]
+--[[         indent_blankline = true, ]]
+--[[         nvim_tree = { ]]
+--[[             enabled = true, ]]
+--[[             show_root = false, ]]
+--[[         }, ]]
+--[[         telescope = { ]]
+--[[             enabled = true, ]]
+--[[             nvchad_like = true, ]]
+--[[         }, ]]
+--[[         startify = true, ]]
+--[[     }, ]]
+--[[ }) ]]
+--[[ vim.opt.background="dark" ]]
+--[[ noirbuddy.setup({ ]]
+--[[   preset="miami-nights", ]]
+--[[   colors={ ]]
+--[[     primary = '#6EE2FF', ]]
+--[[     background="#18181A", ]]
+    --[[ secondary = '#5271ff' ]]
+--[[   }, ]]
+--[[  styles = { ]]
+--[[     italic = true, ]]
+--[[     bold = false, ]]
+--[[     underline = false, ]]
+--[[     undercurl = true, ]]
+--[[   }, ]]
+--[[ }) ]]
+--[[ tokyonight.setup({}) ]]
+-- init.lua
+--[[ vim.g.tokyodark_transparent_background = true ]]
+--[[ vim.g.tokyodark_enable_italic_comment = true ]]
+--[[ vim.g.tokyodark_enable_italic = true ]]
+--[[ vim.g.tokyodark_color_gamma = "1.0" ]]
+--[[ vim.g.zenbones_solid_line_nr = true ]]
+--[[ vim.g.zenbones_darken_comments = 45 ]]
+--[[ embark.setup({}) ]]
+--[[ palenightfall.setup({ ]]
+--[[ }) ]]
 --[[ M.overrides = { ]]
 --[[   colors = {}, ]]
 --[[   highlights = { ]]
@@ -69,17 +143,17 @@ catppuccin.setup {
 --[[       VertSplit = { fg = mocha.surface0 }, ]]
 --[[       NonText = { fg = mocha.surface0 }, ]]
 --[[     } ]]
---[[     -- mocha = { ]]
---[[     --   ["@field"] = { fg = mocha.rosewater }, ]]
---[[     --   TSField = { fg = mocha.rosewater }, ]]
---[[     -- } ]]
+    -- mocha = {
+    --   ["@field"] = { fg = mocha.rosewater },
+    --   TSField = { fg = mocha.rosewater },
+    -- }
 --[[   } ]]
 --[[ } ]]
 
 --[[ function M.setup() ]]
 --[[   catppuccin.setup({ ]]
 --[[     transparent_background = true, ]]
---[[     term_colors = false, ]]
+--[[     term_colors = true, ]]
 --[[     compile = { ]]
 --[[       enabled = false, ]]
 --[[       path = vim.fn.stdpath("cache") .. "/catppuccin", ]]
@@ -143,18 +217,59 @@ catppuccin.setup {
 --[[           information = { "underline" }, ]]
 --[[         }, ]]
 --[[       }, ]]
---[[       neotree = { ]]
---[[         enabled = true, ]]
---[[         show_root = true, ]]
---[[         transparent_panel = false, ]]
---[[       } ]]
 --[[     }, ]]
 --[[     color_overrides = M.overrides.colors, ]]
 --[[     highlight_overrides = M.overrides.highlights, ]]
 --[[   }) ]]
 --[[ end ]]
-
 --[[ return M ]]
+--[[ catppuccin.setup({ ]]
+--[[     flavour = "mocha", -- latte, frappe, macchiato, mocha ]]
+--[[     background = { -- :h background ]]
+--[[         light = "latte", ]]
+--[[         dark = "mocha", ]]
+--[[     }, ]]
+--[[     compile_path = vim.fn.stdpath("cache") .. "/catppuccin", ]]
+--[[     transparent_background = true, ]]
+--[[     term_colors = false, ]]
+--[[     dim_inactive = { ]]
+--[[         enabled = false, ]]
+--[[         shade = "dark", ]]
+--[[         percentage = 0.15, ]]
+--[[     }, ]]
+--[[     styles = { ]]
+--[[         comments = { "italic" }, ]]
+--[[         conditionals = { "italic" }, ]]
+--[[         loops = {}, ]]
+--[[         functions = {}, ]]
+--[[         keywords = {}, ]]
+--[[         strings = {}, ]]
+--[[         variables = {}, ]]
+--[[         numbers = {}, ]]
+--[[         booleans = {}, ]]
+--[[         properties = {}, ]]
+--[[         types = {}, ]]
+--[[         operators = {}, ]]
+--[[     }, ]]
+--[[     color_overrides = { ]]
+--[[     latte = { ]]
+--[[       base="#E1EEF5" ]]
+--[[     }, ]]
+--[[     mocha = { ]]
+--[[       base="#000000" ]]
+--[[     } ]]
+--[[   }, ]]
+--[[     custom_highlights = {}, ]]
+--[[     integrations = { ]]
+--[[         cmp = true, ]]
+--[[         gitsigns = true, ]]
+--[[         nvimtree = true, ]]
+--[[         telescope = true, ]]
+--[[         treesitter = true, ]]
+--[[         harpoon = true ]]
+--[[         -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations) ]]
+--[[     }, ]]
+--[[ }) ]]
 --[[ local load_ok, nightfox = pcall(require, "nightfox") ]]
 --[[ if not load_ok then ]]
 --[[   return ]]

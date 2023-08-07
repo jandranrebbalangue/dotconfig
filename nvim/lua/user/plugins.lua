@@ -84,12 +84,18 @@ use {
     -- In Vim, compat mode is turned on as Lush only works in Neovim.
     requires = "rktjmp/lush.nvim"
 }
+use({
+    'ramojus/mellifluous.nvim',
+    requires = { 'rktjmp/lush.nvim' },
+})
 use {
   "jesseleite/nvim-noirbuddy",
   requires = { "tjdevries/colorbuddy.nvim", branch = "dev" }
 }
   use 'ishan9299/modus-theme-vim'
 use { 'embark-theme/vim', as = 'embark' }
+use 'kvrohit/rasmus.nvim'
+use { 'dasupradyumna/midnight.nvim' }
 -- Lazy
 use{
   "olimorris/onedarkpro.nvim",
@@ -351,6 +357,8 @@ use {
   end,
   requires= { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
 }
+-- mjml previewer
+use { "ec965/mjml-preview.nvim", ft = { "mjml" }, run = "cd app && npm install" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
