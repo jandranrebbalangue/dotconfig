@@ -43,10 +43,10 @@ if not ok_status then
 end
 midnight.setup {
     HighlightGroup = {
-        fg = ForegroundColor, -- :h guifg
-        bg = BackgroundColor, -- :h guibg
-        sp = SpecialColor, -- :h guisp
-        style = RenderStyle, -- :h attr-list
+        fg ='DarkBlue', -- :h guifg
+        bg ='Black', -- :h guibg
+        sp ='DarkBlue', -- :h guisp
+        style =NONE, -- :h attr-list
         clear = true -- :h :hi-clear (clear "HighlightGroup"; `false` ignores this option)
     },
     ...
@@ -280,4 +280,3 @@ midnight.setup {
 --[[     transparent = true, ]]
 --[[   }, ]]
 --[[ } ]]
-
