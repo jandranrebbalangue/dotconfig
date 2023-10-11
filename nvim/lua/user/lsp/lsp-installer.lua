@@ -16,8 +16,8 @@ lsp_installer.on_server_ready(function(server)
 	 	opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
 	 end
 
-	 if server.name == "sumneko_lua" then
-	 	local sumneko_opts = require("user.lsp.settings.sumneko_lua")
+	 if server.name == "lua_ls" then
+	 	local sumneko_opts = require("user.lsp.settings.lua_ls")
 	 	opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	 end
 
@@ -36,6 +36,15 @@ lsp_installer.on_server_ready(function(server)
 	    opts = vim.tbl_deep_extend("force", rust_opts, opts)
 	  end
 
+	  if server.name == "eslint" then
+	    local eslint_opts = require("user.lsp.settings.eslint")
+	    opts = vim.tbl_deep_extend("force",eslint_opts, opts)
+	  end
+
+	  if server.name == "python" then
+	    local python_opts = require("user.lsp.settings.jedi_language_server")
+	    opts = vim.tbl_deep_extend("force",python_opts, opts)
+	  end
 	  -- if server.name == "prismals" then
 	  --   local prisma_opts = require("config.lsp.settings.prisma")
 	  --   opts = vim.tbl_deep_extend("force", prisma_opts, opts)

@@ -1,4 +1,4 @@
-local servers = { "jsonls", "sumneko_lua", "tsserver","dockerls","yamlls","bashls","rust_analyzer","html","golangci_lint_ls","gopls","eslint"}
+local servers = { "jsonls", "lua_ls", "tsserver","dockerls","yamlls","bashls","rust_analyzer","html","golangci_lint_ls","gopls","eslint","jedi_language_server"}
 
 require("mason").setup()
 require("mason-lspconfig").setup {
@@ -41,10 +41,14 @@ require("mason-lspconfig").setup_handlers({
 	    local eslint_opts = require("user.lsp.settings.eslint")
 	    opts = vim.tbl_deep_extend("force",eslint_opts, opts)
 	  end
+	  if server == "jedi_language_server" then
+	    local python_opts = require("user.lsp.settings.jedi_language_server")
+	    opts = vim.tbl_deep_extend("force",python_opts, opts)
+	  end
       require("lspconfig")[server].setup(opts)
- end})
+ end}
+)
 -- After setting up mason-lspconfig you may set up servers via lspconfig
 -- require("lspconfig").sumneko_lua.setup {}
 -- require("lspconfig").rust_analyzer.setup {}
 -- ...
-
