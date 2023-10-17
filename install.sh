@@ -89,6 +89,17 @@ echo "Installing lazygit"
 [ -f "/etc/arch-release" ] && install_lazygit_on_arch
 echo "Done"
 }
+install_neovim_on_arch() {
+  echo "Installing neovim on arch"
+sudo pacman -S neovim
+}
+install_neovim() {
+  echo "Installing neovim"
+[ -f "/etc/arch-release" ] && install_neovim_on_arch
+echo "Copy neovim config"
+cp -r ./nvim/* $HOME/.config/nvim/
+echo "Done"
+}
 
 setup() {
   echo "starting to setup"
