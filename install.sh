@@ -3,7 +3,7 @@ install_i3() {
   echo "Installing i3"
 [ -f "/etc/arch-release" ] && install_i3wm_on_arch
 echo "Copy i3 config"
-cp ./i3/config $HOME/.config/i3/config
+cp ./i3/config "$HOME/.config/i3/config"
 echo "Done installing i3"
 }
 
@@ -11,7 +11,7 @@ install_tmux() {
 echo "Installing tmux"
 [ -f "/etc/arch-release" ] && install_tmux_on_arch
 echo "Copy tmux config"
-cp ./tmux/.tmux.conf $HOME/.tmux.conf
+cp ./tmux/.tmux.conf "$HOME/.tmux.conf"
 echo "Done installing tmux"
 }
 
@@ -35,7 +35,7 @@ install_picom() {
   echo "Installing picom"
 [ -f "/etc/arch-release" ] && install_picom_on_arch
 echo "Copy picom config"
-cp ./picom/picom.conf $HOME/.config/picom.conf
+cp ./picom/picom.conf "$HOME/.config/picom.conf"
 }
 install_alacritty_on_arch() {
 echo "installing rust and cargo"
@@ -50,9 +50,9 @@ install_alacritty() {
   echo "Installing alacritty"
 [ -f "/etc/arch-release" ] && install_alacritty_on_arch
 echo "Create config folder for alacritty"
-mkdir $HOME/.config/alacritty/
+mkdir "$HOME/.config/alacritty/"
 echo "Copy alacritty config"
-cp ./alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
+cp ./alacritty/alacritty.yml "$HOME/.config/alacritty/alacritty.yml"
 echo "Done"
 }
 install_httpie_on_arch() {
