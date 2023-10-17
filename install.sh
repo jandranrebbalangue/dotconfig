@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-
-
 install_i3() {
   echo "Installing i3"
 [ -f "/etc/arch-release" ] && install_i3wm_on_arch
