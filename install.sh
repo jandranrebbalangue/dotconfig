@@ -68,16 +68,16 @@ install_httpie() {
   echo "Installing httpie"
 [ -f "/etc/arch-release" ] && install_httpie_on_arch
 echo "Copy httpie config"
-cp ./httpie/config.json $HOME/.config/httpie/config.json
+cp ./httpie/config.json "$HOME/.config/httpie/config.json"
 echo "Done"
 }
 install_neofetch() {
   echo "Installing neofetch"
 [ -f "/etc/arch-release" ] && install_neofetch_on_arch
 echo "Copy neofetch config"
-cp ./neofetch/config.conf $HOME/.config/neofetch/config.conf
+cp ./neofetch/config.conf "$HOME/.config/neofetch/config.conf"
 echo "Copy neofetch logo"
-cp ./neofetch/logo $HOME/.config/neofetch/logo
+cp ./neofetch/logo "$HOME/.config/neofetch/logo"
 echo "Done"
 }
 install_lazygit_on_arch() {
@@ -97,7 +97,7 @@ install_neovim() {
   echo "Installing neovim"
 [ -f "/etc/arch-release" ] && install_neovim_on_arch
 echo "Copy neovim config"
-cp -r ./nvim/* $HOME/.config/nvim/
+cp -r ./nvim/* "$HOME/.config/nvim/"
 echo "Done"
 }
 
