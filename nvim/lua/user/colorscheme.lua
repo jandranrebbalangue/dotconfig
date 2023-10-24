@@ -7,7 +7,10 @@
 --[[ local colorscheme = "catppuccin" ]]
 --[[ local colorscheme = "mellifluous" ]]
 --[[ local colorscheme = "rasmus" ]]
-local colorscheme = "midnight"
+--[[ local colorscheme = "midnight" ]]
+--[[ local colorscheme = "bluloco-dark" ]]
+local colorscheme = "dogrun"
+--[[ local colorscheme = "yash" ]]
 --[[ require('palenightfall').configure_colors({ ]]
 --[[   cyan = '#fff0000', ]]
 --[[ }) ]]
@@ -29,7 +32,10 @@ end
 --[[ local M = {} ]]
 --[[ local ok_status,mellifluous= pcall(require, "mellifluous") ]]
 --[[ local ok_status,rasmus= pcall(require, "rasmus") ]]
-local ok_status,midnight= pcall(require, "midnight")
+--[[ local ok_status,midnight= pcall(require, "midnight") ]]
+--[[ local ok_status,bluloco= pcall(require, "bluloco") ]]
+local ok_status,dogrun= pcall(require, "dogrun")
+--[[ local ok_status,yash= pcall(require, "yash") ]]
 --[[ local ok_status, catppuccin= pcall(require, "catppuccin") ]]
 --[[ local ok_status,lighthaus= pcall(require, "lighthaus") ]]
 --[[ local ok_status,palenightfall= pcall(require, "palenightfall") ]]
@@ -41,16 +47,24 @@ local ok_status,midnight= pcall(require, "midnight")
 if not ok_status then
   return
 end
-midnight.setup {
-    HighlightGroup = {
-        fg ='DarkBlue', -- :h guifg
-        bg ='Black', -- :h guibg
-        sp ='DarkBlue', -- :h guisp
-        style =NONE, -- :h attr-list
-        clear = true -- :h :hi-clear (clear "HighlightGroup"; `false` ignores this option)
-    },
-    ...
-}
+dogrun.setup({})
+--[[ bluloco.setup({ ]]
+--[[   style = "auto",               -- "auto" | "dark" | "light" ]]
+--[[   transparent = false, ]]
+--[[   italics = false, ]]
+--[[   terminal = vim.fn.has("gui_running") == 1, -- bluoco colors are enabled in gui terminals per default. ]]
+--[[   guicursor   = true, ]]
+--[[ }) ]]
+--[[ midnight.setup { ]]
+--[[     HighlightGroup = { ]]
+--[[         fg ='DarkBlue', -- :h guifg ]]
+--[[         bg ='Black', -- :h guibg ]]
+--[[         sp ='DarkBlue', -- :h guisp ]]
+--[[         style ='NONE', -- :h attr-list ]]
+--[[         clear = true -- :h :hi-clear (clear "HighlightGroup"; `false` ignores this option) ]]
+--[[     }, ]]
+--[[     ... ]]
+--[[ } ]]
 -- Configure the appearance
 --[[ vim.g.rasmus_italic_functions = true ]]
 --[[ vim.g.rasmus_bold_functions = true ]]
