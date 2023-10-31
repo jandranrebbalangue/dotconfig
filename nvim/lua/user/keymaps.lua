@@ -124,6 +124,10 @@ vim.keymap.set("n", "<leader>m", function()
 end)
 
 keymap("n", "<leader>n","<cmd>lua require('monorepo').add_project()<cr>",opts)
+
+keymap("n","<leader>k","<cmd>PickEverything<cr>",opts)
+keymap("n","<C-p>","<cmd>PickEverythingYank<cr>",opts)
+keymap("i","<C-i>","<cmd>PickEverythingInsert<cr>",opts)
 --[[ vim.keymap.set("n", "<leader>n", function() ]]
 --[[   require("monorepo").toggle_project() ]]
 --[[ end) ]]

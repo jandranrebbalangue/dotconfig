@@ -361,6 +361,16 @@ use {
 -- mjml previewer
 use { "ec965/mjml-preview.nvim", ft = { "mjml" }, run = "cd app && npm install" }
 
+--icon picker
+use "stevearc/dressing.nvim"
+use({
+  "ziontee113/icon-picker.nvim",
+  config = function()
+    require("icon-picker").setup({
+      disable_legacy_commands = true
+    })
+  end,
+})
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
