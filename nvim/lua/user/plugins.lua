@@ -97,6 +97,7 @@ use { 'embark-theme/vim', as = 'embark' }
 use 'kvrohit/rasmus.nvim'
 use { 'dasupradyumna/midnight.nvim' }
 use 'wadackel/vim-dogrun'
+use("oxfist/night-owl.nvim")
 -- Lazy
 use{
   "olimorris/onedarkpro.nvim",
