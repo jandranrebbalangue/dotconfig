@@ -180,10 +180,13 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-exec_always --no-startup-id $HOME/.config/launch.sh
+# exec_always --no-startup-id $HOME/.config/launch.sh
 exec_always --no-startup-id picom
 #wallpaper
-exec_always --no-startup-id feh --bg-scale $HOME/Pictures/1265863.png
+exec_always --no-startup-id feh --bg-scale $HOME/Downloads/1337723.jpeg
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+bar {
+        status_command i3status
+}
 
