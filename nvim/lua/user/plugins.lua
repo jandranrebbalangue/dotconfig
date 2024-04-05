@@ -54,6 +54,7 @@ return packer.startup(function(use)
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
   use "JoosepAlviste/nvim-ts-context-commentstring" -- Comment string
+use 'nvim-tree/nvim-web-devicons'
   --[[ use "kyazdani42/nvim-web-devicons" -- icons ]]
   --[[ use "kyazdani42/nvim-tree.lua" -- nvim tree ]]
   use "moll/vim-bbye"
@@ -77,6 +78,7 @@ return packer.startup(function(use)
   use { "bluz71/vim-moonfly-colors", as = "moonfly" }
   use 'tiagovla/tokyodark.nvim'
   use {'uloco/bluloco.nvim',requires = { 'rktjmp/lush.nvim' }}
+use "kihachi2000/yash.nvim"
 use {
     "mcchrish/zenbones.nvim",
     -- Optionally install Lush. Allows for more configuration or extending the colorscheme
@@ -96,7 +98,9 @@ use {
 use { 'embark-theme/vim', as = 'embark' }
 use 'kvrohit/rasmus.nvim'
 use { 'dasupradyumna/midnight.nvim' }
+use 'rockerBOO/boo-colorscheme-nvim'
 use 'wadackel/vim-dogrun'
+use({ "miikanissi/modus-themes.nvim" })
 use("oxfist/night-owl.nvim")
 -- Lazy
 use{
@@ -361,7 +365,6 @@ use {
 }
 -- mjml previewer
 use { "ec965/mjml-preview.nvim", ft = { "mjml" }, run = "cd app && npm install" }
-
 --icon picker
 use "stevearc/dressing.nvim"
 use({
@@ -378,4 +381,3 @@ use({
     require("packer").sync()
   end
 end)
-
